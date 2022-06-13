@@ -11,7 +11,9 @@ export default {
     },
     Mutation:{
         createPost: async (_, {data}) => await Post.create(data),
-        updatePost: async (_, {id, data}) => await Post.findByIdAndUpdate(id, data, {new: true}),
-        deletePost: async (_, {id, data}) => !!(await Post.findByIdAndDelete(id))
+        updatePost: async (_, {id, data}) => await Post.findByIdAndUpdate(id, data, {new: true}),// new: true retorna os dados atualizados
+        deletePost: async (_, {id, data}) => !!(await Post.findByIdAndDelete(id)) // !! -> forcar que o return seja boolean
     }
 }
+
+// o {data} é aquele tipo "input UserInput"
